@@ -7,11 +7,12 @@ df = pd.read_sql(
         where signal_id = 125 and
         sd.t between '2021-09-12 12:00:00' and '2021-09-12 13:00:00'
         order by sd.t
-''',
+    ''',
     "postgresql://data_viewer:tokuapidemosystems@apidemo.tokusystems.com/new_mareland")
 
 df_new = df.set_axis(['Last time', 'Amplitude'], axis=1, inplace=False)
 df_new['Last time'] = pd.to_numeric(pd.to_datetime(df_new['Last time']))/100_000_0000
+
 output = []
 
 for i in range(0, len(df_new)):

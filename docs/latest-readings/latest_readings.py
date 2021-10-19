@@ -27,6 +27,6 @@ for index, row in df_new.iterrows():
 
 print(df_new.to_string(
     formatters={
-        'Last time': lambda x: f'{pd.to_datetime(x,unit="D"):%X}',
+        'Last time': lambda x: f'{pd.to_datetime(x,unit="D"):%c}',
         'Last reading': lambda x: f'{x:.5g}'
     }))
